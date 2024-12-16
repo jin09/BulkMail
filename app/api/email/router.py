@@ -23,16 +23,6 @@ async def email_batch_send(request: Request, body: BatchSendRequestBody) -> Dict
     """
     Handles batch email sending requests by processing the provided emails data and enqueues the task
     for asynchronous execution.
-
-    :param request: The current HTTP request object. Provides context for the request, e.g., headers,
-        method, and path.
-    :type request: Request
-    :param body: The payload containing batch email data, which will include information such as
-        recipients, message content, and other properties needed for processing.
-    :type body: BatchSendRequestBody
-    :return: A dictionary containing the result of the batch email request submission, including the
-        request status and a unique request ID.
-    :rtype: Dict
     """
     request_id: str = get_request_id(request)
     body_dict = body.model_dump()
